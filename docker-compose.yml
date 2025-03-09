@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  universityproject:
+    build: .
+    container_name: universityproject-container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_USER: univproject
+      DB_PASSWORD: 1234
+      DB_NAME: backend
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  database:
+    image: postgres:latest
+    container_name: universityproject-db
+    restart: always
+    environment:
+      POSTGRES_USER: univproject
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: backend
+    ports:
+    - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
