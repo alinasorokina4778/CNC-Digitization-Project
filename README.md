@@ -5,8 +5,7 @@
 ## Инструкции по сборке образа и запуску контейнера
 
 1. Клонируйте репозиторий:
-   ```bash
-   git clone <ссылка на репозиторий>
+   https://github.com/alinasorokina4778/UniversityProject
 
 2. Перейдите в директорию проекта:
 cd /home/alina/new-univ-project/universityproject
